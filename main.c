@@ -44,8 +44,8 @@ stack_t *create_N(int num)
  * Return: None.
  */
 void free_stack_nod(void)
-{	
-stack_t *h;
+{
+	stack_t *h;
 
 	if (head == NULL)
 		return;

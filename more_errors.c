@@ -24,7 +24,7 @@ void more_error(int err_code, ...)
     default:
         break;
     }
-    free_nodes();
+    free_stack_nod();
     exit(EXIT_FAILURE);
 }
 

@@ -55,6 +55,21 @@ void do_nothing (stack_t **, unsigned int);
 /*string ASCII */
 void printAscii (stack_t **, unsigned int);
 void  printStringStack (stack_t **, unsigned i:nt);
-
+/*file*/
+void find_fc(char *, char *, int, int);
+void call_fc(op_func, char *, char *, int, int);
+stack_t *create_N(int num);
+void free_stack_nod(void);
+/*open and read */
+void open_monty(char *);
+void readFile(file);
+void pall_stk(stack_t **, unsigned int);
+void addto_queue (stack_t **, unsigned int);
+void addto_stack(stack_t **, unsigned int);
+/*operation sp*/
+void pint_elements(stack_t **, unsigned int);
+void pop_elements(stack_t **, unsigned int);
+void rot_lift(stack_t **, unsigned int);
+void rot_right(stack_t **, unsigned int);
 #endif /* MONTY_H*/
 

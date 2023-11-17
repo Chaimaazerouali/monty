@@ -1,12 +1,36 @@
 #include "monty.h"
 /**
+ * push_element - Pushes element to stack
+ * 
+ */
+void push_element(stack_t **new_node, unsigned int n)
+{
+	stack_t *cursor = head;
+
+	if (!new_node || !*new_node)
+		return;
+	(void) n;
+	if (!cursor)
+	{
+		head = *new_node;
+		return;
+	}
+
+	while (cursor->next)
+		cursor = cursor->next;
+
+	cursor->next = *new_node;
+	(*new_node)->prev = cursor;
+}
+
+/**
  * pop_elements - Removes the top element from the stack.
  * @stk: Pointer to a pointer pointing to the top element of the stack.
  * @line_num: Integer representing the line number of the opcode.
  */
 void pop_elements(stack_t **stk, unsigned int line_num)
 {
-    stack_t *top_element;
+	stack_t *top_element;
 
     if (stk == NULL || *stk == NULL)
         handle_error(7, line_num);
@@ -29,6 +53,7 @@ void print_elements(stack_t **stk, unsigned int line_num)
         handle_error(6, line_num);
     printf("%d\n", (*stk)->n);
 }
+
 /**
  * rot_lift - Rotates the first node of the stack to the bottom.
  * @stk: Pointer to a pointer pointing to the top node of the stack.
@@ -75,5 +100,3 @@ void rot_right(stack_t **stk, __attribute__((unused)) unsigned int line_num)
     (*stk)->prev = top_element;
     (*stk) = top_element;
 }
-
-

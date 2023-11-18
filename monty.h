@@ -39,22 +39,22 @@ typedef struct instruction_s
 } instruction_t;
 
 /* GLOBAL VARIABLES */
-extern stack_t **global_free;
-
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 /*errors*/
-void handle_error(int err_code, ...)
-void more_error(int err_code, ...)
+void handle_error(int err_code, ...);
+void more_error(int err_code, ...);
 /*math operation */
-void add_elements (stack_t **, unsigned int);
-void subtract_elements (stack_t **, unsigned int);
-void multiply_elements (stack_t **, unsigned int);
-void divide_elements (stack_t **, unsigned int);
-void modulo_elements (stack_t **, unsigned int);
-void swap_elements (stack_t **, unsigned int);
+void add_elements(stack_t **, unsigned int);
+void subtract_elements(stack_t **, unsigned int);
+void multiply_elements(stack_t **, unsigned int);
+void divide_elements(stack_t **, unsigned int);
+void modulo_elements(stack_t **, unsigned int);
+void swap_elements(stack_t **, unsigned int);
 void do_nothing (stack_t **, unsigned int);
 /*string ASCII */
 void printAscii (stack_t **, unsigned int);
-void  printStringStack (stack_t **, unsigned i:nt);
+void  printStringStack (stack_t **, unsigned int);
 /*file*/
 void find_fc(char *, char *, int, int);
 void call_fc(op_func, char *, char *, int, int);
@@ -62,7 +62,8 @@ stack_t *create_N(int num);
 void free_stack_nod(void);
 /*open and read */
 void open_monty(char *);
-void readFile(file);
+void readFile(FILE *);
+int inter_line(char *line, int line_num, int fmt);
 void pall_stk(stack_t **, unsigned int);
 void addto_queue (stack_t **, unsigned int);
 void addto_stack(stack_t **, unsigned int);

@@ -19,11 +19,11 @@ void pop_elements(stack_t **stk, unsigned int line_num)
 }
 
 /**
- * print_elements - Prints the value of the top element of the stack.
+ * pint_elements - Prints the value of the top element of the stack.
  * @stk: Pointer to a pointer pointing to the top element of the stack.
  * @line_num: Integer representing the line number of the opcode.
  */
-void print_elements(stack_t **stk, unsigned int line_num)
+void pint_elements(stack_t **stk, unsigned int line_num)
 {
     if (stk == NULL || *stk == NULL)
         handle_error(6, line_num);

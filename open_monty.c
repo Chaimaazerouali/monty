@@ -40,12 +40,12 @@ void pall_stk(stack_t **stk, __attribute__((unused)) unsigned int line_num)
         top_elements = top_elements->next;
     }
 }
+
 /**
  * readFile - reads content from a file
  * @fdr: file descriptor pointer
  * Return: void
  */
-
 void readFile(FILE *fdr)
 {
     int line_num, fmt = 0;
@@ -65,7 +65,6 @@ void readFile(FILE *fdr)
  * @fmt: Storage format: 0 for stack, 1 for queue.
  * Returns: 0 for stack opcode, 1 for queue opcode.
  */
-
 int inter_line(char *line, int line_num, int fmt)
 {
     char *opcode, *val;
@@ -87,5 +86,3 @@ int inter_line(char *line, int line_num, int fmt)
     find_fc(opcode, val, line_num, fmt);
     return (fmt);
 }
-
-

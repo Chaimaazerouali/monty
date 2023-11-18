@@ -1,27 +1,4 @@
 #include "monty.h"
-/**
- * push_element - Pushes element to stack
- * 
- */
-void push_element(stack_t **new_node, unsigned int n)
-{
-	stack_t *cursor = head;
-
-	if (!new_node || !*new_node)
-		return;
-	(void) n;
-	if (!cursor)
-	{
-		head = *new_node;
-		return;
-	}
-
-	while (cursor->next)
-		cursor = cursor->next;
-
-	cursor->next = *new_node;
-	(*new_node)->prev = cursor;
-}
 
 /**
  * pop_elements - Removes the top element from the stack.

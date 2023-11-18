@@ -59,4 +59,3 @@ void handle_error(int err_code, ...)
     free_stack_nod();
     exit(EXIT_FAILURE);
 }
-

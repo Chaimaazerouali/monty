@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  * find_fc - Finds the appropriate function for the opcode
+ * @head: double pointer on head node (first node).
  * @o: Opcode
  * @a: Argument of opcode
  * @l: Line number
@@ -12,10 +13,10 @@ void find_fc(char *o, char *a, int l, int f)
     int i;
     int g;
 
-    instruction_t ops[] = {
-        {"push", addto_stack},
+instruction_t ops[] = {
+        {"push", push_element},
         {"pall", pall_stk},
-        {"pint", pint_elements},
+/*        {"pint", pint_elements},
         {"pop", pop_elements},
         {"nop", do_nothing},
         {"swap", swap_elements},
@@ -27,9 +28,9 @@ void find_fc(char *o, char *a, int l, int f)
         {"pchar", printAscii},
         {"pstr", printStringStack},
         {"rotl", rot_lift},
-        {"rotr", rot_right},
+        {"rotr", rot_right}, */
         {NULL, NULL}
-    };
+};
 
     if (o[0] == '#')
         return;
@@ -56,32 +57,26 @@ void find_fc(char *o, char *a, int l, int f)
  */
 void call_fc(op_func func, char *o, char *a, int l, int f)
 {
-    stack_t *n;
-    int flag;
-    int i;
+	stack_t *n;
+	int flag;
 
-    flag = 1;
-    if (strcmp(o, "push") == 0)
-    {
-        if (a != NULL && a[0] == '-')
-        {
-            a = a + 1;
-            flag = -1;
-        }
-        if (a == NULL)
-            handle_error(5, l);
-        for (i = 0; a[i] != '\0'; i++)
-        {
-            if (!isdigit(a[i]))
-                handle_error(5, l);
-        }
-        n = create_N(atoi(a) * flag);
-        if (f == 0)
-            func(&n, l);
-        if (f == 1)
-            addto_queue(&n, 1);
-    }
-    else
-        func(&head, l);
+	flag = 1;
+	if (strcmp(o, PUSH_CODE) == 0)
+	{
+		if (a != NULL && a[0] == '-')
+		{
+			a = a + 1;
+			flag = -1;
+		}
+		if (!a || !str_numeric(a))
+			handle_error(5, l);
+		n = create_N(atoi(a) * flag);
+
+		if (f == 0)
+			func(&n, l);
+/*		if (f == 1)
+			addto_queue(&n, 1); */
+	}
+	else
+		func(&head, l);
 }
-

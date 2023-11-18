@@ -54,3 +54,28 @@ void do_nothing(stack_t **stk, unsigned int line_num)
     (void)stk;
     (void)line_num;
 }
+
+/**
+ * pall_stk - Prints all the stack.
+ * @stk: Pointer to a pointer pointing to the top element of the stack.
+ * @line_num: Integer representing the line number of the opcode.
+ *
+ * Return: void
+ */
+void pall_stk(stack_t **head, unsigned int line_num)
+{
+	stack_t *cursor;
+
+	if (!head || !*head)
+		return;
+	(void) line_num;
+	cursor = *head;
+	while (cursor->next)
+		cursor = cursor->next;
+
+	while (cursor)
+	{
+		printf("%d\n", cursor->n);
+		cursor = cursor->prev;
+	}
+}

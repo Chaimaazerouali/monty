@@ -17,7 +17,7 @@ void more_error(int err_code, ...)
 	switch (err_code)
 	{
 		case 10:
-			fprintf(stderr, "L%d: can't pchar, value outside ASCII bounds\n", line_num);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
 			break;
 		case 11:
 			fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);

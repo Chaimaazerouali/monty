@@ -7,16 +7,16 @@
  */
 void add_elements(stack_t **stk, unsigned int line_num)
 {
-    int sum;
+	int sum;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        handle_error(8, line_num, "add");
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		handle_error(8, line_num, "add");
 
-    (*stk) = (*stk)->next;
-    sum = (*stk)->n + (*stk)->prev->n;
-    (*stk)->n = sum;
-    free((*stk)->prev);
-    (*stk)->prev = NULL;
+	(*stk) = (*stk)->next;
+	sum = (*stk)->n + (*stk)->prev->n;
+	(*stk)->n = sum;
+	free((*stk)->prev);
+	(*stk)->prev = NULL;
 }
 
 /**
@@ -26,16 +26,16 @@ void add_elements(stack_t **stk, unsigned int line_num)
  */
 void subtract_elements(stack_t **stk, unsigned int line_num)
 {
-    int difference;
+	int difference;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        handle_error(8, line_num, "sub");
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		handle_error(8, line_num, "sub");
 
-    (*stk) = (*stk)->next;
-    difference = (*stk)->n - (*stk)->prev->n;
-    (*stk)->n = difference;
-    free((*stk)->prev);
-    (*stk)->prev = NULL;
+	(*stk) = (*stk)->next;
+	difference = (*stk)->n - (*stk)->prev->n;
+	(*stk)->n = difference;
+	free((*stk)->prev);
+	(*stk)->prev = NULL;
 }
 /**
  * multiply_elements - Multiplies the top two elements of the stack.
@@ -44,16 +44,16 @@ void subtract_elements(stack_t **stk, unsigned int line_num)
  */
 void multiply_elements(stack_t **stk, unsigned int line_num)
 {
-    int product;
+	int product;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        handle_error(8, line_num, "mul");
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		handle_error(8, line_num, "mul");
 
-    (*stk) = (*stk)->next;
-    product = (*stk)->n * (*stk)->prev->n;
-    (*stk)->n = product;
-    free((*stk)->prev);
-    (*stk)->prev = NULL;
+	(*stk) = (*stk)->next;
+	product = (*stk)->n * (*stk)->prev->n;
+	(*stk)->n = product;
+	free((*stk)->prev);
+	(*stk)->prev = NULL;
 }
 /**
  * divide_elements - Divides the top two elements of the stack.
@@ -62,17 +62,17 @@ void multiply_elements(stack_t **stk, unsigned int line_num)
  */
 void divide_elements(stack_t **stk, unsigned int line_num)
 {
-    int quotient;
+	int quotient;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        handle_error(8, line_num, "div");
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		handle_error(8, line_num, "div");
 
-    if ((*stk)->n == 0)
-        handle_error(9, line_num);
+	if ((*stk)->n == 0)
+		handle_error(9, line_num);
 
-    (*stk) = (*stk)->next;
-    quotient = (*stk)->n / (*stk)->prev->n;
-    (*stk)->n = quotient;
-    free((*stk)->prev);
-    (*stk)->prev = NULL;
+	(*stk) = (*stk)->next;
+	quotient = (*stk)->n / (*stk)->prev->n;
+	(*stk)->n = quotient;
+	free((*stk)->prev);
+	(*stk)->prev = NULL;
 }

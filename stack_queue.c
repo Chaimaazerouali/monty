@@ -7,21 +7,21 @@
  */
 void addto_stack(stack_t **n_nod, __attribute__((unused)) unsigned int l)
 {
-    stack_t *temp;
+	stack_t *temp;
 
-    if (n_nod == NULL || *n_nod == NULL)
-        exit(EXIT_FAILURE);
-    
-    if (head == NULL)
-    {
-        head = *n_nod;
-        return;
-    }
+	if (n_nod == NULL || *n_nod == NULL)
+		exit(EXIT_FAILURE);
 
-    temp = head;
-    head = *n_nod;
-    head->next = temp;
-    temp->prev = head;
+	if (head == NULL)
+	{
+		head = *n_nod;
+		return;
+	}
+
+	temp = head;
+	head = *n_nod;
+	head->next = temp;
+	temp->prev = head;
 }
 /**
  * addto_queue - Enqueues a node in the queue.
@@ -30,22 +30,21 @@ void addto_stack(stack_t **n_nod, __attribute__((unused)) unsigned int l)
  */
 void addto_queue(stack_t **n_nod, __attribute__((unused)) unsigned int l)
 {
-    stack_t *temp;
+	stack_t *temp;
 
-    if (n_nod == NULL || *n_nod == NULL)
-        exit(EXIT_FAILURE);
-    
-    if (head == NULL)
-    {
-        head = *n_nod;
-        return;
-    }
+	if (n_nod == NULL || *n_nod == NULL)
+		exit(EXIT_FAILURE);
 
-    temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
+	if (head == NULL)
+	{
+		head = *n_nod;
+		return;
+	}
 
-    temp->next = *n_nod;
-    (*n_nod)->prev = temp;
+	temp = head;
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = *n_nod;
+	(*n_nod)->prev = temp;
 }
-

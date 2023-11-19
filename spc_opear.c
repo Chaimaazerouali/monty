@@ -9,14 +9,14 @@ void pop_elements(stack_t **stk, unsigned int line_num)
 {
 	stack_t *top_element;
 
-    if (stk == NULL || *stk == NULL)
-        handle_error(7, line_num);
+	if (stk == NULL || *stk == NULL)
+		handle_error(7, line_num);
 
-    top_element = *stk;
-    *stk = top_element->next;
-    if (*stk != NULL)
-        (*stk)->prev = NULL;
-    free(top_element);
+	top_element = *stk;
+	*stk = top_element->next;
+	if (*stk != NULL)
+		(*stk)->prev = NULL;
+	free(top_element);
 }
 
 /**
@@ -26,9 +26,9 @@ void pop_elements(stack_t **stk, unsigned int line_num)
  */
 void pint_elements(stack_t **stk, unsigned int line_num)
 {
-    if (stk == NULL || *stk == NULL)
-        handle_error(6, line_num);
-    printf("%d\n", (*stk)->n);
+	if (stk == NULL || *stk == NULL)
+		handle_error(6, line_num);
+	printf("%d\n", (*stk)->n);
 }
 
 /**
@@ -38,20 +38,20 @@ void pint_elements(stack_t **stk, unsigned int line_num)
  */
 void rot_lift(stack_t **stk, __attribute__((unused)) unsigned int line_num)
 {
-    stack_t *top_element;
+	stack_t *top_element;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        return;
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		return;
 
-    top_element = *stk;
-    while (top_element->next != NULL)
-        top_element = top_element->next;
+	top_element = *stk;
+	while (top_element->next != NULL)
+		top_element = top_element->next;
 
-    top_element->next = *stk;
-    (*stk)->prev = top_element;
-    *stk = (*stk)->next;
-    (*stk)->prev->next = NULL;
-    (*stk)->prev = NULL;
+	top_element->next = *stk;
+	(*stk)->prev = top_element;
+	*stk = (*stk)->next;
+	(*stk)->prev->next = NULL;
+	(*stk)->prev = NULL;
 }
 
 /**
@@ -61,19 +61,19 @@ void rot_lift(stack_t **stk, __attribute__((unused)) unsigned int line_num)
  */
 void rot_right(stack_t **stk, __attribute__((unused)) unsigned int line_num)
 {
-    stack_t *top_element;
+	stack_t *top_element;
 
-    if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
-        return;
+	if (stk == NULL || *stk == NULL || (*stk)->next == NULL)
+		return;
 
-    top_element = *stk;
+	top_element = *stk;
 
-    while (top_element->next != NULL)
-        top_element = top_element->next;
+	while (top_element->next != NULL)
+		top_element = top_element->next;
 
-    top_element->next = *stk;
-    top_element->prev->next = NULL;
-    top_element->prev = NULL;
-    (*stk)->prev = top_element;
-    (*stk) = top_element;
+	top_element->next = *stk;
+	top_element->prev->next = NULL;
+	top_element->prev = NULL;
+	(*stk)->prev = top_element;
+	(*stk) = top_element;
 }
